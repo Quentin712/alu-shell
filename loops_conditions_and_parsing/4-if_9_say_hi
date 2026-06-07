@@ -1,0 +1,10 @@
+s script displays "Best School" 10 times, adding "Hi" on the 9th iteration
+
+counter=1
+while [ "$counter" -le 10 ]; do
+	echo "Best School"
+	if [ "$counter" -eq 9 ]; then
+		echo "Hi"
+	fi
+	counter=$((counter + 1))
+done
