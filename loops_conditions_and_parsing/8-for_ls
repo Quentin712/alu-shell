@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script displays the filenames in the current directory after the first dash
+
+for file in *; do
+	if [ -e "$file" ]; then
+		echo "${file#*-}"
+	fi
+done
