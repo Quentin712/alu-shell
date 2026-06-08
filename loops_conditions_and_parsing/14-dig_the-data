@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script counts and sorts visitor IPs and HTTP status codes by occurrence
+
+awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -rn
