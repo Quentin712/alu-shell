@@ -1,4 +1,4 @@
-/env bash
+#!/usr/bin/env bash
 # This script formats /etc/passwd data into a story format
 
 # shellcheck disable=SC2034
