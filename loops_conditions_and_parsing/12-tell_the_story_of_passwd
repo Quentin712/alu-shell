@@ -1,0 +1,7 @@
+/env bash
+# This script formats /etc/passwd data into a story format
+
+# shellcheck disable=SC2034
+while IFS=":" read -r username password uid gid info home shell; do
+	echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid's place is protected by the passcode $password, more info about the user here: $info"
+done < /etc/passwd
