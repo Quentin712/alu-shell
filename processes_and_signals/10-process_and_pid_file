@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# 10-process_and_pid_file
+
+PID_FILE="/var/run/myscript.pid"
+
+# Function to handle clean exit on SIGTERM or SIGQUIT
+clean_exit() {
+    # If it's a SIGTERM, we first display the specific message
+    if [ "$1" = "SIGTERM" ]; then
+        echo "I hate the kill command"
+    fi
+    # Delete the PID file and terminate
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+# Write the current process ID (PID) to the file
+echo "$$" > "$PID_FILE"
+
+# Trap signals and assign their respective behaviors
+trap 'clean_exit SIGTERM' SIGTERM
+trap 'clean_exit SIGQUIT' SIGQUIT
+trap 'echo "Y U no love me?!"' SIGINT
+
+# Infinite loop
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
