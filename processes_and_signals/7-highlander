@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# 7-highlander
+
+# Trap SIGTERM and execute the echo command when received
+trap 'echo "I am invincible!!!"' SIGTERM
+
+# Infinite loop
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
